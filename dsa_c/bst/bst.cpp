@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<queue>
+#include<iostream>
+using namespace std;
 
 typedef struct node {
 int data;
@@ -36,22 +38,28 @@ int Min(node* root){
     if(root->left==NULL)return root->data;
     return Min(root->left);}
 
-void LvlOrderTrav(node* root){
-    if(root==NULL)return;
-    queue<node*>Q;
-    Q.push(root);
-    while(!Q.empty()){
-    node* current =Q.first();
-    cout<<current->data<<" ";
-    if(current->left!=NULL)Q.push(current->left);
-    if(current->right!=NULL)Q.push(current->right);
-    Q.pop()}
+void LvlOrdTrav(node* root){
+    if (root==NULL)return;
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty()){
+    node* current=q.front();
+    cout<<current->data <<" ";
+    if(current->left!=NULL) q.push(current->left);
+    if(current->right!=NULL) q.push(current->right);
+    q.pop();
+    }
+}
+
+
+
+
 
 int Max(node* root){
     if(root->right==NULL)return root->data;
     return Max(root->right);}
 
-void main(){
+int main(){
     node* root =NULL;
     int min,max;
     root=Insert(root,5);
@@ -63,6 +71,8 @@ void main(){
     max=Max(root);
     printf("%d is the min from the bst\n",min);
     printf("%d is the min from the bst\n",max);
+
+    LvlOrdTrav(root);
 }
 
 
