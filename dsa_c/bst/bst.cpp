@@ -51,13 +51,43 @@ void LvlOrdTrav(node* root){
     }
 }
 
-
-
-
-
 int Max(node* root){
     if(root->right==NULL)return root->data;
     return Max(root->right);}
+
+
+node* Delete(node* root,int data){
+    if (!root) return root;                           //base-case
+    if (data>root->data) root->left=Delete(root->left,data);
+    else if (data<root->data)root->right= Delete(root->right,data);
+    else{
+        //case-1
+        if(!root->right && !root->left) {
+            free(root);
+            return NULL;}
+        //case-2 any one of child is null
+        else if (!root->right){
+            node* temp = root;
+            root=root->left;
+            printf("%d print from case-2 ",root->data);
+            free(temp);
+            return root;}
+        else if (!root->left){
+            node* temp = root;
+            root=root->right;
+            printf("%d print from case-2 ",root->data);
+            free(temp);
+            return root;}
+       //case-3(complicated) 
+        else {
+                root->data=Min(root->right);
+                root->right=Delete(root->right,root->data);
+            }
+        }
+    return root;
+}
+        
+
 
 int main(){
     node* root =NULL;
@@ -68,11 +98,15 @@ int main(){
     root=Insert(root,8);
     root=Insert(root,9);
     min=Min(root);
-    max=Max(root);
     printf("%d is the min from the bst\n",min);
-    printf("%d is the min from the bst\n",max);
-
+    max=Max(root);
+    printf("%d is the max from the bst\n",max);
     LvlOrdTrav(root);
+    printf("Lvl order trav using bst\n");
+    root=Delete(root,7);
+    LvlOrdTrav(root);
+    printf("Lvl order trav after deleting \n");
+    
 }
 
 
