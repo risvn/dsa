@@ -58,24 +58,25 @@ int Max(node* root){
 
 node* Delete(node* root,int data){
     if (!root) return root;                           //base-case
-    if (data>root->data) root->left=Delete(root->left,data);
-    else if (data<root->data)root->right= Delete(root->right,data);
-    else{
+    else if (data<root->data) root->left=Delete(root->left,data); 
+    else if (data>root->data) root->right=Delete(root->right,data);
+    else{  // in case of  data = root->data
         //case-1
         if(!root->right && !root->left) {
+            printf("%d  is deleted from case-1\n ",root->data);
             free(root);
-            return NULL;}
+            root=NULL; }
         //case-2 any one of child is null
         else if (!root->right){
             node* temp = root;
             root=root->left;
-            printf("%d print from case-2 ",root->data);
+            printf("%d  is deleted from case-2\n ",temp->data);
             free(temp);
             return root;}
         else if (!root->left){
             node* temp = root;
             root=root->right;
-            printf("%d print from case-2 ",root->data);
+            printf("%d is deletedfrom case-2 \n",temp->data);
             free(temp);
             return root;}
        //case-3(complicated) 
@@ -103,7 +104,7 @@ int main(){
     printf("%d is the max from the bst\n",max);
     LvlOrdTrav(root);
     printf("Lvl order trav using bst\n");
-    root=Delete(root,7);
+    root=Delete(root,9);
     LvlOrdTrav(root);
     printf("Lvl order trav after deleting \n");
     
