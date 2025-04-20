@@ -1,0 +1,21 @@
+=================================**graphs**=================================
+
+g=(v,e)
+graph are of two types directed and undirected
+
+self-loop: if both edge points are same
+mult-edge: if it occurs more than once
+ex:cities with flight roots
+
+simple-graphs: no multi-edge,no self-loop
+max no edges in dir graph 0<=|E|<=n(n-1)
+max no edges in undir graph 0<=|E|<=n(n-1)\2
+
+dense-> to many edges
+parse-> to few edges
+
+path/walk: a seq of vertices where each adj pair is connected by an edge
+path(simple-path) : a walk in which no vertices (and thus no edges) are repeated
+trail: a walk in which no edges are repeated
+
+
