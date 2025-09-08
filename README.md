@@ -3,7 +3,6 @@
 
 ## 📑 Table of Contents
 - [1. Linked Lists](#1-linked-lists)
-  - [Structure of a Node](#structure-of-a-node-in-linked-list)
   - [Types of Linked Lists](#types-of-linked-lists)
   - [Advantages](#advantages-of-linked-list)
   - [Disadvantages](#disadvantages-of-linked-list)
@@ -22,7 +21,7 @@
 ---
 
 ------------------------------------------------------------
-1. Linked Lists
+### 1. Linked Lists
 ------------------------------------------------------------
 
 A Linked List is a linear data structure where elements (called nodes) are stored dynamically and connected using pointers.
@@ -32,8 +31,10 @@ Structure of a Node (C code):
         int data;
         struct Node* next;
     };
+
+
+## Types of Linked Lists:
 ```
-Types of Linked Lists:
 1. Singly Linked List  
    Each node points to the next node.  
    [10 | next] -> [20 | next] -> [30 | next] -> NULL
@@ -47,17 +48,17 @@ Types of Linked Lists:
    [10] -> [20] -> [30] -+
      ^-------------------+
 ```
-Advantages:
+## Advantages:
 - Dynamic size (no fixed capacity).
 - Efficient insertions/deletions if pointer is known.
 
-Disadvantages:
+## Disadvantages:
 - Sequential access (O(n) search).
 - Extra memory required for pointers.
 
 
 ------------------------------------------------------------
-2. Binary Search Tree (BST)
+### 2. Binary Search Tree (BST)
 ------------------------------------------------------------
 
 A Binary Search Tree is a hierarchical structure where each node has at most two children, and values are arranged so that:
@@ -71,8 +72,8 @@ Structure of a Node (C code):
         struct Node* right;
     };
 
+## Example BST:
 ```
-Example BST:
             50
            /  \
          30    70
@@ -80,7 +81,7 @@ Example BST:
       20  40 60  80
 
 ```
-Operations:
+## Operations:
 - Search → O(log n) average, O(n) worst case.
 - Insert → Place value according to BST rules.
 - Delete → Three cases:
@@ -96,10 +97,10 @@ Tree Traversals:
 
 
 ------------------------------------------------------------
-3. Graphs
+### 3. Graphs
 ------------------------------------------------------------
 
-A Graph is a collection of nodes (vertices) connected by edges.
+## A Graph is a collection of nodes (vertices) connected by edges.
 
 Terminology:
 - Vertex (V): a node in the graph.
@@ -107,21 +108,21 @@ Terminology:
 - Directed Graph: edges have direction (A → B).
 - Undirected Graph: edges have no direction (A -- B).
 
-Graph Representations:
+## Graph Representations:
 1. Adjacency Matrix  
    A 2D array where matrix[i][j] = 1 if there is an edge from i to j.
 
 2. Adjacency List  
    Each vertex stores a list of adjacent vertices.
 
+## Example (Undirected Graph):
 ```
-Example (Undirected Graph):
    A -- B
    |    |
    C -- D
 
 ```
-Applications of Graphs:
+## Applications of Graphs:
 - Social networks (users as vertices, friendships as edges).
 - Maps and navigation (cities as vertices, roads as edges).
 - Computer networks, dependency resolution, pathfinding.
@@ -132,7 +133,7 @@ Applications of Graphs:
 
 ------------------------------------------------------------
 ## 4. Sorting
-------------------------------------------------------------
+
 Sorting is the process of arranging elements in a specific order (ascending or descending).  
 One of the simplest sorting algorithms is **Bubble Sort**.
 
