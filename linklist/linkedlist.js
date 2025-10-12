@@ -7,7 +7,7 @@ let getNode=(index,list)=>{
   if(index==0)return({value:list.value,next:list.next})
   return getNode(index-1,list.next)}
 
-let linkedList=list([1,2,4,5,6,7])
+let linkedList=list([1,2,3,4,5,6,7])
 
 
 let print=(list)=>{
@@ -24,13 +24,14 @@ let setNode=(index,list,val)=>{
 }
 
 let removeNode=(index,list)=>{
- if(index==1)return node(list.next.value,list.next)
-  return node(list.value,setNode(index-1,list.next))
+ if(list.next==null)return null
+ if(index==0)return list.next 
+  return node(list.value,removeNode(index-1,list.next))
 }
 
 
 
 let ll=setNode(2,linkedList,3)
-let newList=removeNode(5,ll)
+let newList=removeNode(3,linkedList)
 
 print(newList)
